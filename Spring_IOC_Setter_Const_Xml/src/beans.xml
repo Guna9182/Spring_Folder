@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean definitions here -->
+	<bean id="emp" class="com.spec.Employee">
+		<!-- this is setter based dependency injection -->
+		<property name="empId" value="192"></property>
+		<property name="empName" value="Guna"></property>
+
+		<property name="department" ref="depart"></property>
+	</bean>
+
+	<bean id="depart" class="com.spec.Department">
+		<!-- this is constructor based dependency injection -->
+		<constructor-arg index="0" value="HR"></constructor-arg>
+		<constructor-arg name="departmentName"
+			value="Human Resource"></constructor-arg>
+	</bean>
+
+</beans>
